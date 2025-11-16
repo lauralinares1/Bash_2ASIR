@@ -1,0 +1,4 @@
+operadorescopia,copia,real,tar -czf $FINAL_DEST_NAME $ORIGIN_DIR
+operadorescopia,copia,simulate,tar -czf $FINAL_DEST_NAME $ORIGIN_DIR
+NO_ADMIN,copia,real,tar -czf $FINAL_DEST_NAME $ORIGIN_DIR
+NO_ADMIN,copia,simulate,tar -czf $FINAL_DEST_NAME $ORIGIN_DIR
