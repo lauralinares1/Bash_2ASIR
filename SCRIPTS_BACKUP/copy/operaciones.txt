@@ -1,0 +1,4 @@
+operadorescopia,copia,real,sudo tar -czf "$FINAL_DEST_NAME" "$ORIGIN_DIR"
+operadorescopia,copia,simulate,echo "sudo tar -czf $FINAL_DEST_NAME $ORIGIN_DIR"
+NO_ADMIN,copia,real,tar -czf "$FINAL_DEST_NAME" "$ORIGIN_DIR"
+NO_ADMIN,copia,simulate,echo "tar -czf $FINAL_DEST_NAME $ORIGIN_DIR"

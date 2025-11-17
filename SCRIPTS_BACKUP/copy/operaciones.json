@@ -1,0 +1,26 @@
+[
+  {
+    "user_type": "operadorescopia",
+    "operation": "copia",
+    "mode": "real",
+    "command": "sudo tar -czf \"$FINAL_DEST_NAME\" \"$ORIGIN_DIR\""
+  },
+  {
+    "user_type": "operadorescopia",
+    "operation": "copia",
+    "mode": "simulate",
+    "command": "echo \"sudo tar -czf $FINAL_DEST_NAME $ORIGIN_DIR\""
+  },
+  {
+    "user_type": "NO_ADMIN",
+    "operation": "copia",
+    "mode": "real",
+    "command": "tar -czf \"$FINAL_DEST_NAME\" \"$ORIGIN_DIR\""
+  },
+  {
+    "user_type": "NO_ADMIN",
+    "operation": "copia",
+    "mode": "simulate",
+    "command": "echo \"tar -czf $FINAL_DEST_NAME $ORIGIN_DIR\""
+  }
+]
