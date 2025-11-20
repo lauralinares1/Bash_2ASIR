@@ -1,16 +1,16 @@
 #!/bin/bash
 DEBUG=0
-SIMULATE="real" 
+SIMULATE="real"
 
-FILE="/dev/null" 
+FILE="/dev/null"
 LOG_FILE="/var/log/copia" # destino de los log
 OPERATIONS="/opt/copia/operaciones" # fichero con las operaciones
 DEFAULT_DEST="/opt/copia/listado" # directorio por defecto para operadorescopia y root
 
 USER_TYPE="NO_ADMIN" # por defecto, el usuario será NO_ADMIN salvo que cumpla con las condiciones de pertenencia a grupo o root
 ADMIN_GROUP="operadorescopia" # grupo con permisos para copiar
-USER_NAME=$(whoami) # comando para detectar quién es el usuario que lo ejecuta -- guardado en variable
 USER_HOME="$HOME" # comando que dice el directorio HOME del usuario -- guardado en variable
+
 
 DATE=$(date +%d-%m-%Y) # date para el nombre del tar con la sintaxis deseada
 TAR_NAME="" # definicion del nombre tar -- varío
@@ -31,7 +31,7 @@ EOF
 exit 0
 }
 function get_group() { # función para determinar si el usuario que ejecuta es un ADMIN o NO_ADMIN
-    if groups | grep -q $ADMIN_GROUP > $FILE 2>$FILE || groups | grep -q root > $FILE 2>$FILE; then
+    if groups | grep $ADMIN_GROUP > $FILE 2>$FILE || groups | grep root > $FILE 2>$FILE; then
         USER_TYPE=$ADMIN_GROUP
     fi
 }
@@ -103,7 +103,7 @@ while true; do
     esac
 done
 if [ "$DEBUG" -eq 1 ]; then # si está en modo debug, los errores pasan al fichero log con la fecha del dia y hora y min
-    FILE="$LOG_FILE-$(date +%d-%m-%Y-%H-%M)"
+    FILE="$LOG_FILE_$(date +%d-%m-%Y_%H-%M)"
 fi
 
 get_group
